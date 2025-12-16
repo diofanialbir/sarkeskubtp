@@ -36,6 +36,6 @@ function startWebsite() {
     document.body.style.opacity = '0';
 
     setTimeout(() => {
-        window.location.href = 'main-pembagian-tugas.html';   // pindah ke halaman utama
+        window.location.href = 'main-index.html';   // pindah ke halaman utama
     }, 800);
 }
