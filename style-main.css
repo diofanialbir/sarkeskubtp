@@ -1,0 +1,465 @@
+/* ==============================
+   VARIABEL & RESET DASAR
+============================== */
+:root {
+  --primary: #2456c5;
+  --primary-dark: #163b85;
+  --accent: #f9b234;
+  --bg: #f4f7fc;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --radius-lg: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+   background: radial-gradient(circle at top left, #8a8a8a 0%, #4e383b 30%, #000136 100%);
+  color: var(--text-main);
+}
+
+/* ==============================
+   TIPOGRAFI GLOBAL
+============================== */
+h1, h2, h3 {
+  font-family: 'Merriweather', 'Montserrat', serif;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+/* ==============================
+   HEADER
+============================== */
+header.topbar {
+    background: radial-gradient(circle at top left, #ffdd9b 0%, #ff8fa2 30%, #0047ff 100%);
+  color: #fff;
+  padding: 40px 24px 52px;
+  text-align: center;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.75);
+  position: relative;
+  overflow: hidden;
+}
+
+header.topbar::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.18) 0, transparent 55%),
+    radial-gradient(circle at 120% 140%, rgba(56, 189, 248, 0.35) 0, transparent 65%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+header.topbar::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 999px;
+  border: 1px solid rgba(191, 219, 254, 0.5);
+  top: -120px;
+  right: -40px;
+  box-shadow: 0 0 60px rgba(191, 219, 254, 0.8);
+  opacity: 0.6;
+}
+
+.topbar-title {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.topbar-title h1 {
+  margin-bottom: 10px;
+  font-size: 2.6rem;
+  text-shadow: 0 8px 22px rgba(15, 23, 42, 0.9);
+}
+
+.topbar-title p {
+  margin: 0;
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+/* garis aksen di bawah judul */
+.topbar-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  margin: 14px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #facc15, #f97316, #38bdf8);
+  box-shadow: 0 0 18px rgba(251, 191, 36, 0.9);
+}
+/* ==============================
+   KONTEN UTAMA
+============================== */
+main.content {
+  flex: 1;
+  max-width: 1120px;
+  margin: 26px auto 64px;
+  padding: 0 18px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+body {
+  /* tetap seperti sebelumnya, tambahkan sedikit blur di sekitar konten */
+  backdrop-filter: blur(4px);
+}
+
+/* efek kaca lembut di seluruh kumpulan card */
+main.content {
+  position: relative;
+}
+
+main.content::before {
+  content: "";
+  position: absolute;
+  inset: 0 24px;
+  top: -10px;
+  bottom: -10px;
+  border-radius: 28px;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.18), transparent 55%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* intro & tasks pakai glassmorphism tipis di atas gradient yang sudah ada */
+.intro-section,
+.tasks-section {
+  border-radius: 22px;
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.75);
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-section::before,
+.tasks-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.32),
+    rgba(148, 163, 184, 0.15)
+  );
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.intro-section > *,
+.tasks-section > * {
+  position: relative;
+  z-index: 1;
+}
+/* ==============================
+   INTRO SECTION
+============================== */
+.intro-section {
+    background: radial-gradient(circle at top left, #ffdd9b 0%, #ff8fa2 30%, #0047ff 100%);
+  padding: 22px 24px 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.4);
+  position: relative;
+  overflow: hidden;
+  color: #0b1120;
+  animation: floatUp 0.7s ease-out;
+}
+
+.intro-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(248, 250, 252, 0.6);
+  pointer-events: none;
+}
+
+.intro-section h2 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.intro-section p {
+  color: #0b1120;
+  line-height: 1.7;
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ==============================
+   DUA KOLOM: SARANA & KESELAMATAN
+============================== */
+.tasks-two-columns {
+  display: flex;
+  gap: 26px;
+  margin-top: 10px;
+}
+
+/* KARTU UNTUK MASING-MASING KOLOM */
+.tasks-section {
+  flex: 1;
+    background: radial-gradient(circle at top left, #ffdd9b 0%, #ff8fa2 30%, #0047ff 100%);
+  padding: 22px 22px 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.45);
+  position: relative;
+  overflow: hidden;
+  color: #0b1120;
+  animation: floatUp 0.8s ease-out;
+}
+
+.tasks-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(248, 250, 252, 0.7);
+  pointer-events: none;
+}
+.tasks-section h2 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tasks-section h2::before {
+  content: "";
+  width: 8px;
+  height: 22px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #facc15, #f97316);
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.9);
+}
+
+.tasks-section h2 {
+  margin: 0 0 8px;
+  font-size: 1.18rem;
+}
+
+.tasks-section > p {
+  margin: 0;
+  color: #020617;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+/* LIST TOMBOL DALAM KARTU */
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* ==============================
+   TOMBOL TUGAS (CARD)
+============================== */
+.task-card {
+  width: 100%;
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+  color: #f9fafb;
+  padding: 15px 16px;
+  border-radius: 16px;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition:
+    transform 0.2s ease-out,
+    box-shadow 0.2s ease-out,
+    background 0.28s ease-out,
+    letter-spacing 0.2s ease-out;
+}
+
+/* panah di kanan */
+.task-card::after {
+  content: "›";
+  font-size: 1.3rem;
+  opacity: 0.85;
+}
+
+/* efek hover mengesankan */
+.task-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.8);
+  background: linear-gradient(135deg, #1d4ed8, #f97316);
+  letter-spacing: 0.03em;
+}
+
+.task-card:active {
+  transform: translateY(-1px) scale(0.99);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.6);
+}
+
+.task-card.active {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+}
+
+.task-card:focus {
+  outline: 2px solid #facc15;
+  outline-offset: 3px;
+}
+
+/* ==============================
+   ANIMASI KEYFRAMES
+============================== */
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+/* RESPONSIVE - TABLET & MOBILE */
+@media (max-width: 768px) {
+  header.topbar {
+    padding: 28px 18px 36px; /* Kurangi padding */
+  }
+  
+  .topbar-title h1 {
+    font-size: 1.9rem;
+    line-height: 1.1;
+  }
+  
+  .topbar-title p {
+    font-size: 1rem;
+    padding: 0 8px; /* Hindari text overflow */
+  }
+  
+  main.content {
+    margin: 20px auto 40px;
+    padding: 0 12px 32px;
+    gap: 18px;
+  }
+  
+  .tasks-two-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .tasks-section,
+  .intro-section {
+    padding: 20px 20px 22px; /* Padding sentuh-friendly */
+  }
+  
+  .task-card {
+    padding: 18px 16px; /* Minimal 44px height untuk touch */
+    font-size: 1rem;
+    min-height: 52px; /* Ukuran sentuh standar */
+    gap: 14px;
+  }
+  
+  .task-card::after {
+    font-size: 1.4rem;
+  }
+}
+
+/* MOBILE KECIL */
+@media (max-width: 480px) {
+  html, body {
+    overflow-x: hidden; /* Cegah horizontal scroll */
+  }
+  
+  header.topbar {
+    padding: 24px 16px 32px;
+  }
+  
+  header.topbar::after {
+    width: 180px;
+    height: 180px;
+    top: -80px;
+    right: -20px;
+  }
+  
+  .topbar-title h1 {
+    font-size: 1.7rem;
+    padding: 0 4px;
+  }
+  
+  .topbar-title p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  main.content {
+    margin: 16px auto 32px;
+    padding: 0 10px 28px;
+  }
+  
+  .tasks-section,
+  .intro-section {
+    padding: 18px 16px 20px;
+    border-radius: 16px; /* Radius lebih kecil */
+  }
+  
+  .task-card {
+    padding: 16px 14px;
+    font-size: 0.98rem;
+    border-radius: 14px;
+    min-height: 48px;
+  }
+  
+  .tasks-list {
+    gap: 14px;
+  }
+}
+/* SAFE AREA MOBILE */
+@supports (padding: max(0px)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
